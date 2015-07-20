@@ -15,9 +15,13 @@ endif
 "Required
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-"Managed Plug-ins
-NeoBundle 'Shougo/neocomplcache.git'
-NeoBundle 'Shougo/unite.vim.git'
+"Managed Plug-in
+NeoBundle 'Shougo/neocomplete.vim'                 "候補のボッブアッブ表示
+NeoBundle 'Shougo/unite.vim.git'                   "ファイルオープンを便利に
+NeoBundle 'scrooloose/nerdtree'                    "カレントディレクトリのツリーを表示
+NeoBundle 'tpope/vim-endwise'                      "Rubyの簡単なコード補完
+NeoBundle 'nathanaelkane/vim-indent-guides'        "インデントを表示
+NeoBundle 'vim-scripts/AnsiEsc.vim'                "ANSIカラー情報があるファイルの色を表示する
 "end of NeoBundle
 call neobundle#end()
 filetype plugin indent on
