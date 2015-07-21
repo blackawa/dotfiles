@@ -10,10 +10,10 @@ if has('vim_starting')
         set compatible
     endif
 
-    set rtp+=./neobundle.vim/
+    set rtp+=~/dotfiles/neobundle.vim/
 endif
 "Required
-call neobundle#begin(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/dotfiles/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 "Managed Plug-in
 NeoBundle 'Shougo/neocomplete.vim'                 "候補のボッブアッブ表示
