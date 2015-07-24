@@ -22,6 +22,7 @@ NeoBundle 'scrooloose/nerdtree'                    "カレントディレクト�
 NeoBundle 'tpope/vim-endwise'                      "Rubyの簡単なコード補完
 NeoBundle 'nathanaelkane/vim-indent-guides'        "インデントを表示
 NeoBundle 'vim-scripts/AnsiEsc.vim'                "ANSIカラー情報があるファイルの色を表示する
+NeoBundle 'tomasr/molokai'			   "カラースキーマMolokai
 "end of NeoBundle
 call neobundle#end()
 filetype plugin indent on
