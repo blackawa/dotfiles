@@ -14,6 +14,7 @@ if has('vim_starting')
 
     set rtp+=~/dotfiles/neobundle.vim/
 endif
+
 "Required
 call neobundle#begin(expand('~/dotfiles/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -30,6 +31,9 @@ NeoBundle 'jiangmiao/simple-javascript-indenter'   "JavaScriptのインデント
 NeoBundle 'jelera/vim-javascript-syntax'           "JavaScriptのシンタックス設定
 "end of NeoBundle
 call neobundle#end()
+
 filetype plugin indent on
+
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 NeoBundleCheck
