@@ -33,7 +33,7 @@ NeoBundle 'Yggdroot/indentLine'                     "インデントを視覚化
 NeoBundle 'jiangmiao/simple-javascript-indenter'    "JavaScriptのインデントを整形
 NeoBundle 'jelera/vim-javascript-syntax'            "JavaScriptのシンタックス設定
 NeoBundle 'mattn/emmet-vim'                         "emmetを導入する
-NeoBundle 'scrooloose/syntastic' "コードのシンタックスチェックを行う
+"NeoBundle 'scrooloose/syntastic'                    "コードのシンタックスチェックを行う
 "end of NeoBundle
 call neobundle#end()
 filetype plugin indent on
