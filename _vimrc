@@ -2,10 +2,16 @@
 set number
 "シンタックスハイライトを有効にする
 syntax on
+"インデント設定
+set expandtab
+set tabstop=2
 set shiftwidth=2
+set softtabstop=2
+"保存時に行末スペースを削除する
+autocmd BufWritePre * :%s/\s\+$//ge
 
 "キーボードショートカット
-"NERDTreeをCtrl+Eで開く 
+"NERDTreeをCtrl+Eで開く
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 "Neobundle
@@ -22,20 +28,38 @@ endif
 "Required
 call neobundle#begin(expand('~/dotfiles/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-"Managed Plug-in
-NeoBundle 'Shougo/neocomplete.vim'                  "候補のボッブアッブ表示
-NeoBundle 'Shougo/unite.vim.git'                    "ファイルオープンを便利に
-NeoBundle 'scrooloose/nerdtree'                     "カレントディレクトリのツリーを表示
-NeoBundle 'tpope/vim-endwise'                       "Rubyの簡単なコード補完
-NeoBundle 'nathanaelkane/vim-indent-guides'         "インデントを表示
-NeoBundle 'vim-scripts/AnsiEsc.vim'                 "ANSIカラー情報があるファイルの色を表示する
-NeoBundle 'tomasr/molokai'			    "カラースキーマMolokai
-NeoBundle 'Yggdroot/indentLine'                     "インデントを視覚化する
-NeoBundle 'jiangmiao/simple-javascript-indenter'    "JavaScriptのインデントを整形
-NeoBundle 'jelera/vim-javascript-syntax'            "JavaScriptのシンタックス設定
-NeoBundle 'mattn/emmet-vim'                         "emmetを導入する
-"NeoBundle 'scrooloose/syntastic'                    "コードのシンタックスチェックを行う
-"end of NeoBundle
+"=== Managed Plug-in ===
+"候補のボッブアッブ表示
+NeoBundle 'Shougo/neocomplete.vim'
+"ファイルオープンを便利に
+NeoBundle 'Shougo/unite.vim.git'
+"カレントディレクトリのツリーを表示
+NeoBundle 'scrooloose/nerdtree'
+"Rubyの簡単なコード補完
+NeoBundle 'tpope/vim-endwise'
+"インデントを表示
+NeoBundle 'nathanaelkane/vim-indent-guides'
+"ANSIカラー情報があるファイルの色を表示する
+NeoBundle 'vim-scripts/AnsiEsc.vim'
+"カラースキーマMolokai
+NeoBundle 'tomasr/molokai'
+"インデントを視覚化する
+NeoBundle 'Yggdroot/indentLine'
+"JavaScriptのインデントを整形
+NeoBundle 'jiangmiao/simple-javascript-indenter'
+"JavaScriptのシンタックス設定
+NeoBundle 'jelera/vim-javascript-syntax'
+"emmetを導入する
+NeoBundle 'mattn/emmet-vim'
+"コードのシンタックスチェックを行う
+"NeoBundle 'scrooloose/syntastic'
+""Typescriptのシンタックスハイライト
+NeoBundle 'leafgarland/typescript-vim'
+"Coffescriptのシンタックスハイライト
+NeoBundle 'kchmck/vim-coffee-script'
+" golangのシンタックスハイライト
+NeoBundle 'fatih/vim-go'
+"=== end of NeoBundle ===
 call neobundle#end()
 
 filetype plugin indent on
