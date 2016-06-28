@@ -59,12 +59,24 @@ NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'kchmck/vim-coffee-script'
 " golangのシンタックスハイライト
 NeoBundle 'fatih/vim-go'
+" ネストしたカッコの色を変える
+NeoBundle 'kien/rainbow_parentheses.vim'
+" ClojureのコードをREPLで評価する
+NeoBundle "tpope/vim-fireplace"
+" classpathをロードしてくれる
+NeoBundle "tpope/vim-classpath"
 "=== end of NeoBundle ===
 call neobundle#end()
 
 filetype plugin indent on
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" kien/rainbow_parentheses.vim の設定を有効化
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 NeoBundleCheck
 
