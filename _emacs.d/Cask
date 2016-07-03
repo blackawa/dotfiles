@@ -1,6 +1,7 @@
 (source gnu)
 (source melpa)
 
+;; default
 (depends-on "bind-key")
 (depends-on "cask")
 (depends-on "dash")
@@ -22,10 +23,15 @@
 (depends-on "smex")
 (depends-on "use-package")
 (depends-on "web-mode")
-(depends-on "yasnippet")
-(depends-on "nyan-mode")
 
+(depends-on "nyan-mode")
 (depends-on "pallet")
-(depends-on "init-loader")
-(depends-on "auto-complete")
-(depends-on "undo-tree")
+
+(depends-on "yasnippet") ;; 登録したスニペットを呼び出せる
+(depends-on "init-loader") ;; 設定ファイル分割できる
+(depends-on "auto-complete") ;; 自動補完
+(depends-on "undo-tree") ;; Undo / Redo.
+
+(depends-on "clojure-mode") ;; Clojure用プラグイン
+(depends-on "cider") ;; ClojureのREPL駆動開発用プラグイン
+(depends-on "paredit") ;; カッコの対応関係を整えるプラグイン
