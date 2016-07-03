@@ -1,0 +1,44 @@
+# load zgen
+source "${HOME}/.zgen/zgen.zsh"
+
+# if the init scipt doesn't exist
+if ! zgen saved; then
+  echo "Creating a zgen save"
+  # specify plugins here
+  zgen oh-my-zsh
+
+  # plugins
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh plugins/sudo
+  zgen oh-my-zsh plugins/command-not-found
+  zgen load zsh-users/zsh-syntax-highlighting
+  zgen load /path/to/super-secret-private-plugin
+  # bulk load
+  zgen loadall <<EOPLUGINS
+  zsh-users/zsh-history-substring-search
+  /path/to/local/plugin
+EOPLUGINS
+
+  # completion
+  zgen load zsh-users/zsh-completions src
+
+  # theme
+  zgen oh-my-zsh themes/robbyrussell
+
+  # generate the init script from plugins above
+  zgen save
+fi
+
+# User configuration
+# rbenv
+eval "$(rbenv init -)"
+# golang
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+export GO15VENDOREXPERIMENT=1
+
+source $ZSH/oh-my-zsh.sh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/blackawa/.sdkman"
+[[ -s "/Users/blackawa/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/blackawa/.sdkman/bin/sdkman-init.sh"
