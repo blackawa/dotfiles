@@ -1,3 +1,4 @@
+## --- zgen configurationsj
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
@@ -28,16 +29,19 @@ EOPLUGINS
   # generate the init script from plugins above
   zgen save
 fi
+## --- zgen configurations
 
 # User configuration
+# aliases
+alias v=vim
+alias e=emacs
+
 # rbenv
 eval "$(rbenv init -)"
 # golang
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 export GO15VENDOREXPERIMENT=1
-
-source $ZSH/oh-my-zsh.sh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/blackawa/.sdkman"
