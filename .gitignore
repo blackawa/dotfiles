@@ -1,1 +1,7 @@
-*/
+# ignore neobundle packages and dot files.
+# (equals to add _emacs.d directory)
+[a-zA-Z0-9\.]*/
+
+# _emacs.d
+_emacs.d/.cask
+_emacs.d/elpa
