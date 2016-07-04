@@ -35,3 +35,4 @@
 (depends-on "clojure-mode") ;; Clojure用プラグイン
 (depends-on "cider") ;; ClojureのREPL駆動開発用プラグイン
 (depends-on "paredit") ;; カッコの対応関係を整えるプラグイン
+(depends-on "monokai-theme") ;; Molokaiのテーマに変える. TODO 本当はMolokaiに統一したいなー
