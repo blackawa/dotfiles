@@ -1,5 +1,6 @@
 (source gnu)
 (source melpa)
+(source melpa-stable)
 
 ;; default
 (depends-on "bind-key")
@@ -25,7 +26,7 @@
 (depends-on "web-mode")
 
 (depends-on "nyan-mode")
-(depends-on "pallet")
+(depends-on "pallet") ;; package.el と Cask を統合する
 
 (depends-on "yasnippet") ;; 登録したスニペットを呼び出せる
 (depends-on "init-loader") ;; 設定ファイル分割できる
