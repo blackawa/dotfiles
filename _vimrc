@@ -65,6 +65,8 @@ NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle "tpope/vim-fireplace"
 " classpathをロードしてくれる
 NeoBundle "tpope/vim-classpath"
+" emoji in vim
+NeoBundle "junegunn/vim-emoji"
 "=== end of NeoBundle ===
 call neobundle#end()
 
@@ -77,6 +79,9 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" emoji in vimの自動補完設定追加
+set completefunc=emoji#complete
 
 NeoBundleCheck
 
