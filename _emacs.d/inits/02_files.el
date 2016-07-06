@@ -10,3 +10,6 @@
 
 ;; 他エディタでファイルが編集されたら自動で再読み込み
 (global-auto-revert-mode 1)
+
+;; 必ず行番号を表示する
+(global-linum-mode t)
