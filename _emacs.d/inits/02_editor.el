@@ -1,7 +1,7 @@
 (setq next-line-add-newlines nil)
 (setq-default tab-width 4 indent-tabs-mode nil)
 
-;; do not create backup files
+;; バックアップファイルを作らない
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
@@ -13,3 +13,6 @@
 
 ;; 必ず行番号を表示する
 (global-linum-mode t)
+
+;; スクロールを一行ずつにする
+(setq scroll-step 1)
