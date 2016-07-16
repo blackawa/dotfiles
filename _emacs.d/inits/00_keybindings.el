@@ -1,2 +1,2 @@
-; C-h for backspace
-(define-key global-map "\C-h" 'delete-backward-char)
+;; C-h for backspace
+(keyboard-translate ?\C-h ?\C-?)
