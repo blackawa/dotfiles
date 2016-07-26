@@ -16,3 +16,6 @@
 
 ;; スクロールを一行ずつにする
 (setq scroll-step 1)
+
+;; 保存するたびに行末の空白を削除する
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
