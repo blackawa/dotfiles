@@ -1,6 +1,6 @@
 (source gnu)
-(source melpa)
 (source melpa-stable)
+(source melpa)
 
 ;; default
 (depends-on "bind-key")
@@ -42,5 +42,5 @@
 (depends-on "helm") ;; 統合インターフェース. TODO もうちょっと時間あるときに設定書く. e.g, https://goo.gl/R1odJj
 
 (depends-on "go-mode") ;; golang用プラグイン
-
 (depends-on "scss-mode") ;; SCSS用プラグイン
+(depends-on "enh-ruby-mode") ;; ruby用プラグイン
