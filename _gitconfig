@@ -1,0 +1,19 @@
+[alias]
+	st = status
+	br = branch
+	co = checkout
+	df = diff
+	ps = push
+	ad = add
+	cm = commit
+	lg = log
+	fh = fetch
+[user]
+	name = blackawa
+	email = ***
+[http]
+	sslVerify = false
+[commit]
+	template = /Users/uu098538/.git.commit.template
+[core]
+	editor = vim
