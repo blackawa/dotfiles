@@ -44,3 +44,11 @@
 (depends-on "go-mode") ;; golang用プラグイン
 
 (depends-on "scss-mode") ;; SCSS用プラグイン
+
+(depends-on "js2-mode") ;; jsモード
+(depends-on "flycheck") ;; jshint(一緒に`npm i -g jshint`してね)
+(depends-on "tern") ;; js開発サーバープラグイン(一緒に`npm i -g tern`してね)
+(depends-on "tern-auto-complete") ;; tern関係
+(depends-on "typescript-mode") ;; TypeScriptモード
+(depends-on "tide") ;; TypeScriptの補完
+(depends-on "company") ;; 補完まわりのプラグイン

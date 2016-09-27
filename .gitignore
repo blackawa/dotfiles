@@ -8,3 +8,6 @@ NeoBundle.lock
 _emacs.d/ac-comphist.dat
 _emacs.d/.cask
 _emacs.d/elpa
+_emacs.d/auto-save-list
+_emacs.d/kkcrc
+_emacs.d/tramp
