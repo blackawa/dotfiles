@@ -54,3 +54,6 @@
 (depends-on "company") ;; 補完まわりのプラグイン
 (depends-on "ruby-electric") ;; rubyのカッコなど補完
 (depends-on "ruby-block") ;; rubyの対応するブロックをハイライト
+
+(depends-on "web-mode") ;; viewまわりのファイル編集
+(depends-on "emmet-mode") ;; emmet
