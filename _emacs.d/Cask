@@ -28,6 +28,7 @@
 (depends-on "pallet") ;; package.el と Cask を統合する
 (depends-on "yasnippet") ;; 登録したスニペットを呼び出せる
 (depends-on "init-loader") ;; 設定ファイル分割できる
+(depends-on "anything") ;; 統合インターフェース
 ;; テキスト編集
 (depends-on "auto-complete") ;; 自動補完
 (depends-on "undo-tree") ;; Undo / Redo.
