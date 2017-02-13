@@ -4,6 +4,7 @@
 (require 'company)
 
 (autoload 'js2-mode "js2-mode" nil t)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 
@@ -37,3 +38,5 @@
 (setq company-minimum-prefix-length 1) ;; 1文字入力で補完されるように
  ;;; 候補の一番上でselect-previousしたら一番下に、一番下でselect-nextしたら一番上に行くように
 (setq company-selection-wrap-around t)
+;;; indentを2に
+(setq js-indent-level 2)
