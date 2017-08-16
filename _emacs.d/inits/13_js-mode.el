@@ -7,6 +7,7 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
 
 (add-hook 'js2-mode-hook
           (lambda () (tern-mode t)))
