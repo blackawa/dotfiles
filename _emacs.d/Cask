@@ -61,3 +61,5 @@
 (depends-on "typescript-mode") ;; TypeScriptモード
 (depends-on "tide") ;; TypeScriptの補完
 (depends-on "company") ;; 補完まわりのプラグイン
+;; === CommonLisp ==============================
+(depends-on "slime")
