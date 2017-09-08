@@ -35,6 +35,9 @@ fi
 # aliases
 alias v=vim
 alias e=emacs
+alias dk=docker
+alias dkcp=docker-compose
+alias dke='(){ docker exec -it $1 /bin/bash }'
 
 # rbenv
 eval "$(rbenv init -)"
