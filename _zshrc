@@ -38,6 +38,7 @@ alias e=emacs
 alias dk=docker
 alias dkcp=docker-compose
 alias dke='(){ docker exec -it $1 /bin/bash }'
+alias dki='docker images'
 
 # rbenv
 eval "$(rbenv init -)"
