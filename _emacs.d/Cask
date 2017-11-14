@@ -1,8 +1,6 @@
 (source gnu)
-(source melpa-stable)
 (source melpa)
 
-;; 必須
 (depends-on "bind-key")
 (depends-on "cask")
 (depends-on "dash")
@@ -14,9 +12,10 @@
 (depends-on "flycheck-cask")
 (depends-on "htmlize")
 (depends-on "idle-highlight-mode")
-(depends-on "yaml-mode")
 (depends-on "magit")
 (depends-on "multiple-cursors")
+(depends-on "nyan-mode")
+(depends-on "pallet")
 (depends-on "popwin")
 (depends-on "prodigy")
 (depends-on "projectile")
@@ -25,41 +24,9 @@
 (depends-on "smex")
 (depends-on "use-package")
 (depends-on "web-mode")
-(depends-on "nyan-mode")
-(depends-on "pallet") ;; package.el と Cask を統合する
-(depends-on "yasnippet") ;; 登録したスニペットを呼び出せる
-(depends-on "init-loader") ;; 設定ファイル分割できる
-(depends-on "anything") ;; 統合インターフェース
-;; テキスト編集
-(depends-on "auto-complete") ;; 自動補完
-(depends-on "undo-tree") ;; Undo / Redo.
-(depends-on "neotree") ;; ツリービュー
-(depends-on "emmet-mode") ;; emmet
-(depends-on "helm") ;; 統合インターフェース. TODO もうちょっと時間あるときに設定書く. e.g, https://goo.gl/R1odJj
+(depends-on "yasnippet")
 
-;; 言語専用
-;; === clojure =================================
-(depends-on "clojure-mode") ;; Clojure用プラグイン
-(depends-on "cider") ;; ClojureのREPL駆動開発用プラグイン
-(depends-on "paredit") ;; カッコの対応関係を整えるプラグイン
-(depends-on "monokai-theme") ;; Molokaiのテーマに変える. TODO 本当はMolokaiに統一したいなー
-;; === golang ==================================
-(depends-on "go-mode") ;; golang用プラグイン
-;; === sass ====================================
-(depends-on "scss-mode") ;; SCSS用プラグイン
-;; === ruby ====================================
-(depends-on "enh-ruby-mode") ;; ruby用プラグイン
-(depends-on "ruby-electric") ;; rubyのカッコなど補完
-(depends-on "ruby-block") ;; rubyの対応するブロックをハイライト
-(depends-on "slim-mode") ;; slim
-;; === javascript ==============================
-(depends-on "js2-mode") ;; jsモード
-(depends-on "flycheck") ;; jshint(一緒に`npm i -g jshint`してね)
-(depends-on "tern") ;; js開発サーバープラグイン(一緒に`npm i -g tern`してね)
-(depends-on "tern-auto-complete") ;; tern関係
-;; === TypeScript ==============================
-(depends-on "typescript-mode") ;; TypeScriptモード
-(depends-on "tide") ;; TypeScriptの補完
-(depends-on "company") ;; 補完まわりのプラグイン
-;; === CommonLisp ==============================
-(depends-on "slime")
+(depends-on "use-package")
+(depends-on "helm")
+(depends-on "helm-smex")
+(depends-on "paredit")

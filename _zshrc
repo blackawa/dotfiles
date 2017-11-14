@@ -34,7 +34,7 @@ fi
 # User configuration
 # aliases
 alias v=vim
-alias e=emacs
+alias e='emacs -nw'
 alias dk=docker
 alias dkcp=docker-compose
 alias dke='(){ docker exec -it $1 /bin/bash }'
