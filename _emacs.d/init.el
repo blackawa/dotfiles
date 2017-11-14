@@ -15,6 +15,8 @@
 (setq whitespace-space-regexp "\\(\u3000+\\)")
 (setq whitespace-style '(face trailing tabs))
 
+(load-theme 'darcula t)
+
 ;;; Use packages:
 (require 'use-package)
 (use-package helm

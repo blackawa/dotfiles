@@ -32,3 +32,4 @@
 (depends-on "paredit")
 (depends-on "markdown-mode")
 (depends-on "whitespace")
+(depends-on "darcula-theme")
