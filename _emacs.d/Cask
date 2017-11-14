@@ -30,3 +30,5 @@
 (depends-on "helm")
 (depends-on "helm-smex")
 (depends-on "paredit")
+(depends-on "markdown-mode")
+(depends-on "vmd-mode")
