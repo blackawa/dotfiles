@@ -54,7 +54,8 @@
 (bind-key "f" 'filemaps-prefix spacemaps)
 (bind-keys :map filemaps
            ("f" . helm-find-files)
-           ("l" . load-file))
+           ("l" . load-file)
+           ("r" . helm-recentf))
 
 (defvar stringmaps (make-sparse-keymap) "文字列操作のkeymap")
 (defalias 'stringmaps-prefix stringmaps)

@@ -34,4 +34,3 @@
 (depends-on "whitespace")
 (depends-on "darcula-theme")
 (depends-on "cider")
-(depends-on "helm-recentf")
