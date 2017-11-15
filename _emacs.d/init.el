@@ -31,7 +31,8 @@
   :defer t
   :init
   (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
-  (add-hook 'cider-mode-hook 'enable-paredit-mode))
+  (add-hook 'clojure-mode-hook 'enable-paredit-mode)
+  (add-hook 'cider-repl-mode-hook 'enable-paredit-mode))
 (use-package markdown-mode
   :ensure t
   :commands (markdown-mode gfm-mode)
