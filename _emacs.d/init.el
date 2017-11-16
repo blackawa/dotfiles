@@ -41,6 +41,9 @@
          ("\\.markdown\\'" . markdown-mode))
   :init
   (setq markdown-command "multimarkdown"))
+(use-package linum
+             :init
+             (global-linum-mode))
 
 ;;; Key config:
 (bind-key "C-h" 'delete-backward-char)
