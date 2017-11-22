@@ -17,6 +17,9 @@
 
 (load-theme 'darcula t)
 
+(custom-set-variables '(nyan-bar-length 16))
+(nyan-mode t)
+
 ;;; Use packages:
 (require 'use-package)
 (use-package helm
