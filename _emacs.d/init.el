@@ -17,6 +17,9 @@
 
 (load-theme 'darcula t)
 
+(custom-set-variables '(nyan-bar-length 16))
+(nyan-mode t)
+
 ;;; Use packages:
 (require 'use-package)
 (use-package helm
@@ -46,7 +49,8 @@
              (global-linum-mode))
 
 ;;; Key config:
-(bind-key "C-h" 'delete-backward-char)
+(define-key key-translation-map [?\C-h] [?\C-?])
+;; (bind-key "C-h" 'delete-backward-char)
 (bind-key "M-'" 'next-multiframe-window)
 
 (defvar spacemaps (make-sparse-keymap) "Spacemacsを真似したkeymap")
