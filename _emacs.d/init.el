@@ -25,10 +25,10 @@
 (use-package helm
   :defer t
   :diminish helm-mode
+  :bind (("C-x C-f" . helm-find-files)
+         ("M-x" . helm-smex))
   :init
   (require 'helm-config)
-  (bind-key "C-x C-f" 'helm-find-files)
-  (bind-key "M-x" 'helm-smex)
   (helm-mode t))
 (use-package paredit
   :defer t
@@ -44,10 +44,27 @@
          ("\\.markdown\\'" . markdown-mode))
   :init
   (setq markdown-command "multimarkdown"))
+(use-package projectile
+  :init
+  (projectile-mode t))
+(use-package neotree
+  :defer t
+  :init
+  (defun neotree-project-dir ()
+    "Open NeoTree using the git root."
+    (interactive)
+    (let ((project-dir (projectile-project-root))
+          (file-name (buffer-file-name)))
+      (neotree-toggle)
+      (if project-dir
+          (if (neo-global--window-exists-p)
+              (progn
+                (neotree-dir project-dir)
+                (neotree-find file-name)))
+        (message "Could not find git project root.")))))
 
 ;;; Key config:
 (define-key key-translation-map [?\C-h] [?\C-?])
-;; (bind-key "C-h" 'delete-backward-char)
 (bind-key "M-'" 'next-multiframe-window)
 
 (defvar spacemaps (make-sparse-keymap) "Spacemacsを真似したkeymap")
@@ -60,7 +77,8 @@
 (bind-keys :map filemaps
            ("f" . helm-find-files)
            ("l" . load-file)
-           ("r" . helm-recentf))
+           ("r" . helm-recentf)
+           ("t" . neotree-toggle))
 
 (defvar stringmaps (make-sparse-keymap) "文字列操作のkeymap")
 (defalias 'stringmaps-prefix stringmaps)
@@ -78,6 +96,19 @@
            ("n" . windmove-down)
            ("f" . windmove-right)
            ("b" . windmove-left))
+
+(defvar projectmaps (make-sparse-keymap) "プロジェクト操作のkeymap")
+(defalias 'projectmaps-prefix projectmaps)
+(bind-key "p" 'projectmaps-prefix spacemaps)
+(bind-keys :map projectmaps
+           ("f" . helm-projectile)
+           ("t" . neotree-project-dir))
+
+(defvar gitmaps (make-sparse-keymap) "Git操作のkeymap")
+(defalias 'gitmaps-prefix gitmaps)
+(bind-key "g" 'gitmaps-prefix spacemaps)
+(bind-keys :map gitmaps
+           ("s" . magit-status))
 
 ;; custom-set-variables was added by Custom.
 (custom-set-variables
