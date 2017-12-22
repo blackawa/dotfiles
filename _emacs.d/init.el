@@ -68,7 +68,7 @@
 
 ;;; Key config:
 (define-key key-translation-map [?\C-h] [?\C-?])
-(bind-key "M-'" 'next-multiframe-window)
+(bind-key "M-'" 'other-window)
 
 (defvar spacemaps (make-sparse-keymap) "Spacemacsを真似したkeymap")
 (defalias 'spacemaps-prefix spacemaps)
