@@ -36,3 +36,4 @@
 (depends-on "cider")
 (depends-on "neotree")
 (depends-on "helm-projectile")
+(depends-on "yaml-mode")

@@ -42,8 +42,7 @@
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
-  :init
-  (setq markdown-command "multimarkdown"))
+  :init (setq markdown-command "multimarkdown"))
 (use-package projectile
   :init
   (projectile-mode t))
@@ -63,8 +62,10 @@
                 (neotree-find file-name)))
         (message "Could not find git project root.")))))
 (use-package linum
-             :init
-             (global-linum-mode))
+  :init (global-linum-mode))
+(use-package yaml-mode
+  :ensure t
+  :mode (("\\.ya?ml\\'" . yaml-mode)))
 
 ;;; Key config:
 (define-key key-translation-map [?\C-h] [?\C-?])
