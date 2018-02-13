@@ -39,6 +39,7 @@ alias dk=docker
 alias dkcp=docker-compose
 alias dke='(){ docker exec -it $1 /bin/bash }'
 alias dki='docker images'
+alias kc='kubectl'
 
 # rbenv
 eval "$(rbenv init -)"
