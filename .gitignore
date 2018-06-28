@@ -1,15 +1,11 @@
 NeoBundle.lock
 
-# ignore neobundle packages and dot files.
-# (equals to add _emacs.d directory)
-/[a-zA-Z0-9\.]*/
-
-# _emacs.d
-_emacs.d/ac-comphist.dat
-_emacs.d/.cask
-_emacs.d/elpa
-_emacs.d/auto-save-list
-_emacs.d/kkcrc
-_emacs.d/tramp
-_emacs.d/smex-items
-_emacs.d/eshell/history
+.emacs.d/ac-comphist.dat
+.emacs.d/.cask
+.emacs.d/elpa
+.emacs.d/auto-save-list
+.emacs.d/kkcrc
+.emacs.d/tramp
+.emacs.d/smex-items
+.emacs.d/eshell/history
+.emacs.d/projectile-bookmarks.eld
