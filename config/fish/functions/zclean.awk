@@ -1,0 +1,1 @@
+/home/blackawa/.config/fisherman/z/functions/zclean.awk

@@ -1,0 +1,40 @@
+! transparency settings
+URxvt.depth: 32
+
+! terminal colors
+*.foreground:  [90]#adadad
+*.background:  [90]#202020
+*.cursorColor: [90]#ffffff
+! Black
+*.color0:      [90]#000000
+*.color8:      [90]#555555
+! Red
+*.color1:      [90]#fa5355
+*.color9:      [90]#fb7172
+! Green
+*.color2:      [90]#126e00
+*.color10:     [90]#67ff4f
+! Yellow
+*.color3:      [90]#c2c300
+*.color11:     [90]#ffff00
+! Blue
+*.color4:      [90]#4581eb
+*.color12:     [90]#6d9df1
+! Magenta
+*.color5:      [90]#fa54ff
+*.color13:     [90]#fb82ff
+! Cyan
+*.color6:      [90]#33c2c1
+*.color14:     [90]#60d3d1
+! White
+*.color7:      [90]#adadad
+*.color15:     [90]#eeeeee
+! Bold, Italic, Underline
+*.colorBD:     [90]#eeeeee
+!*.colorIT:
+!*.colorUL:
+
+! font settings
+URxvt.font: xft:monaco:size=11
+Xft.dpi: 123
+
