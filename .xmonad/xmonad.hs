@@ -6,6 +6,7 @@ import XMonad.Hooks.DynamicLog
 
 main = xmonad =<< xmobar desktopConfig
         { terminal    = "urxvt"
+        , modMask = mod4Mask
         , borderWidth = 3
         , startupHook = myStartupHook
         , layoutHook = myLayoutHook
