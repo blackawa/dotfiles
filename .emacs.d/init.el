@@ -43,6 +43,15 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+(use-package go-mode
+  :ensure t
+  :commands (go-mode)
+  :init
+  (add-hook 'go-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook 'gofmt-before-save)
+              (setq c-basic-offset 4)
+              (setq tab-width 4))))
 (use-package projectile
   :init
   (projectile-mode t))
