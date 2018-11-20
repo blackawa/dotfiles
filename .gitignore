@@ -9,7 +9,3 @@ NeoBundle.lock
 .emacs.d/smex-items
 .emacs.d/eshell/history
 .emacs.d/projectile-bookmarks.eld
-
-.xmonad/xmonad-x86_64-linux
-.xmonad/xmonad.hi
-.xmonad/xmonad.o
