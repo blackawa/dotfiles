@@ -1,7 +1,7 @@
 Config {
 
    -- appearance
-     font =         "xft:Monaco:size=9:bold:antialias=true"
+     font =         "xft:Monaco:size=9:bold,xft:Migu 1M:size=9:bold"
    , bgColor =      "black"
    , fgColor =      "#646464"
    , position =     Top
