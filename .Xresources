@@ -35,6 +35,5 @@ URxvt.depth: 32
 !*.colorUL:
 
 ! font settings
-URxvt.font: xft:monaco:size=11
+URxvt.font: xft:monaco:size=11, xft:Migu 1M:size=11
 Xft.dpi: 123
-
