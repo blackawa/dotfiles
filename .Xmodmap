@@ -4,5 +4,7 @@ clear Mod1
 clear Mod4
 keycode 66 = Control_L
 add Control = Control_L Control_R
+! Mod1 == Alt key
 add Mod1 = Super_L Super_R
+! Mod4 == Windows key
 add Mod4 = Alt_L Alt_R
