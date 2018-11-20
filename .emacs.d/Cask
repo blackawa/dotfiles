@@ -39,3 +39,5 @@
 (depends-on "yaml-mode")
 (depends-on "go-mode")
 (depends-on "company-go")
+(depends-on "haskell-mode")
+(depends-on "elm-mode")

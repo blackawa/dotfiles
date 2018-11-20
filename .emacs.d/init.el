@@ -17,7 +17,19 @@
 
 (load-theme 'darcula t)
 
-(custom-set-variables '(nyan-bar-length 16))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(nyan-bar-length 16)
+ '(package-selected-packages
+   (quote
+    (elm-mode yasnippet yaml-mode web-mode use-package smartparens prodigy popwin paredit pallet nyan-mode neotree multiple-cursors markdown-mode magit idle-highlight-mode htmlize helm-smex helm-projectile haskell-mode flycheck-cask expand-region exec-path-from-shell drag-stuff darcula-theme company-go cider)))
+ '(safe-local-variable-values
+   (quote
+    ((cider-refresh-after-fn . "integrant.repl/resume")
+     (cider-refresh-before-fn . "integrant.repl/suspend")))))
 (nyan-mode t)
 
 ;;; Use packages:
@@ -75,6 +87,12 @@
 (use-package yaml-mode
   :ensure t
   :mode (("\\.ya?ml\\'" . yaml-mode)))
+(use-package haskell-mode
+  :ensure t
+  :mode (("\\.hs$" . haskell-mode)))
+(use-package elm-mode
+  :ensure t
+  :mode (("\\.elm$" . elm-mode)))
 
 ;;; Key config:
 (define-key key-translation-map [?\C-h] [?\C-?])
@@ -124,11 +142,10 @@
            ("s" . magit-status))
 
 ;; custom-set-variables was added by Custom.
-(custom-set-variables
- '(safe-local-variable-values
-   (quote
-    ((cider-refresh-after-fn . "integrant.repl/resume")
-     (cider-refresh-before-fn . "integrant.repl/suspend")))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
