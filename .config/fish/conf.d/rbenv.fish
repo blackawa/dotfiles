@@ -1,1 +1,0 @@
-/home/blackawa/.config/fisherman/rbenv/conf.d/rbenv.fish

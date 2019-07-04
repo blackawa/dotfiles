@@ -1,1 +1,0 @@
-/home/blackawa/.config/fisherman/z/conf.d/z.fish
