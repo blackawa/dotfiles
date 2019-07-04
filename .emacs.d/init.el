@@ -15,7 +15,8 @@
 (setq whitespace-space-regexp "\\(\u3000+\\)")
 (setq whitespace-style '(face trailing tabs))
 
-(load-theme 'darcula t)
+(load-theme 'monokai t)
+;; (load-theme 'darcula t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
