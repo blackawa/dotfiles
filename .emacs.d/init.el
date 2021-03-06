@@ -2,7 +2,6 @@
 (when (or (require 'cask "~/.cask/cask.el" t)
           (require 'cask nil t))
   (cask-initialize))
-(package-initialize)
 
 ;;; Variables:
 (setq make-backup-files nil)
@@ -34,6 +33,9 @@
     ((cider-refresh-after-fn . "integrant.repl/resume")
      (cider-refresh-before-fn . "integrant.repl/suspend")))))
 (nyan-mode t)
+
+(if (version<= "26.0.50" emacs-version)
+    (display-line-numbers-mode))
 
 ;;; Use packages:
 (require 'use-package)
@@ -85,8 +87,6 @@
                 (neotree-dir project-dir)
                 (neotree-find file-name)))
         (message "Could not find git project root.")))))
-(use-package linum
-  :init (global-linum-mode))
 (use-package yaml-mode
   :ensure t
   :mode (("\\.ya?ml\\'" . yaml-mode)))
