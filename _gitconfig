@@ -8,6 +8,7 @@
 	cm = commit
 	lg = log
 	fh = fetch
+	mg = merge
 [user]
 	name = blackawa
 	email = ***
@@ -17,3 +18,5 @@
 	template = /Users/uu098538/.git.commit.template
 [core]
 	editor = vim
+[credential]
+	helper = cache

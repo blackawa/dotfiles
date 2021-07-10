@@ -40,7 +40,7 @@ alias dkcp='docker-compose'
 alias 256colors='for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo'
 
 # external sources
-source ~/git/github/rupa/z/z.sh
+source ~/git/github.com/rupa/z/z.sh
 source /usr/local/bin/google-cloud-sdk/completion.zsh.inc
 
 # update path
@@ -48,6 +48,7 @@ typeset -U path
 path=(/usr/local/bin/google-cloud-sdk/bin $path[@])
 
 export SDKMAN_DIR="$HOME/.sdkman"
+export JAVA_HOME="$SDKMAN_DIR/candidates/java/current"
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
 # rbenv
@@ -59,7 +60,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # This must be at end of .zshrc!
-source ~/git/github/blackawa/dotfiles/helm.completion.zsh.inc
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
