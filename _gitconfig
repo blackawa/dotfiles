@@ -18,5 +18,7 @@
 	template = /Users/uu098538/.git.commit.template
 [core]
 	editor = vim
+[core]
+	excludesfile = $HOME/.gitignore
 [credential]
 	helper = cache
