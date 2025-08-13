@@ -1,3 +1,22 @@
+[user]
+	name = blackawa
+	email = ***
+
+[core]
+	editor = vim
+	excludesfile = $HOME/.gitignore
+	pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
+
+[merge]
+    conflictstyle = zdiff3
+
 [alias]
 	st = status
 	br = branch
@@ -6,19 +25,9 @@
 	ps = push
 	ad = add
 	cm = commit
-	lg = log
+	lg = log --oneline --graph --decorate
 	fh = fetch
 	mg = merge
-[user]
-	name = blackawa
-	email = ***
-[http]
-	sslVerify = false
-[commit]
-	template = /Users/uu098538/.git.commit.template
-[core]
-	editor = vim
-[core]
-	excludesfile = $HOME/.gitignore
-[credential]
-	helper = cache
+
+[pull]
+	rebase = true

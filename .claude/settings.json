@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "List(*)",
+      "Bash(gcloud logging read:*)",
+      "Bash(gcloud compute instances list:*)",
+      "ls",
+      "cat",
+      "head",
+      "tail",
+      "find",
+      "grep",
+      "rg",
+      "git status",
+      "git log",
+      "git diff",
+      "git show",
+      "git branch",
+      "gcloud compute instances list",
+      "gcloud logging read",
+      "gcloud services list",
+      "gcloud projects list",
+      "docker ps",
+      "docker images",
+      "npm list",
+      "pip list",
+      "uv list",
+      "ps aux",
+      "df -h",
+      "free -h",
+      "netstat",
+      "lsof"
+    ],
+    "deny": []
+  },
+  "feedbackSurveyState": {
+    "lastShownTime": 1754025272160
+  }
+}
