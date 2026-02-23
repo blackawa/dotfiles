@@ -11,3 +11,6 @@ NeoBundle.lock
 .emacs.d/projectile-bookmarks.eld
 .emacs.d/eshell/
 .emacs.d/tutorial/
+
+.claude/settings.json
+.claude/settings.local.json

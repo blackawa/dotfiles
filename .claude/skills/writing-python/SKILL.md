@@ -18,6 +18,7 @@ description: >
 | Lint + Format | ruff | flake8, black, isort |
 | テスト | pytest | unittest |
 | 型チェック | mypy | - |
+| タスクランナー | Just | - |
 
 ## コマンド
 
