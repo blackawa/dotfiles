@@ -3,7 +3,7 @@ name: writing-typescript
 description: >
   TypeScript / JavaScript コードの作成・レビュー時に適用する規約とベストプラクティス。
   .ts, .tsx, .js, .jsx ファイルの編集、Node.js/Deno プロジェクトのセットアップ、
-  vitest/eslint/tsc の実行時に自動で有効化される。
+  vitest/biome/tsc の実行時に自動で有効化される。
 ---
 
 # TypeScript Development Standards
@@ -14,9 +14,13 @@ description: >
 |------|------|--------|
 | パッケージ管理 | pnpm | npm, yarn |
 | テスト | vitest | jest |
-| Lint + Format | eslint (flat config) + prettier, または biome | eslint legacy config, tslint |
+| Lint + Format | **biome** (v2+) | eslint + prettier（レガシー既存PJのみ）, tslint |
 | 型チェック | tsc --noEmit | - |
 | ランタイム | Node.js LTS / Deno | - |
+
+> **なぜ Biome か**: ESLint+Prettier比で10〜25倍高速、設定ファイル1つ、
+> バイナリ1つ（127+ npmパッケージ不要）。v2でtype-aware linting・プラグイン対応済み。
+> ESLintが必要なのは、Biome未対応の特殊プラグイン（a11y等）に依存する既存PJのみ。
 
 ## コマンド
 
@@ -27,10 +31,55 @@ pnpm add -D <package>
 pnpm install
 
 # 品質チェック（変更後は必ずこの順で実行）
-pnpm exec tsc --noEmit       # 型チェック
-pnpm exec eslint --fix .     # lint + autofix
-pnpm exec prettier --write . # format
+pnpm exec tsc --noEmit      # 型チェック
+pnpm exec biome check --fix . # lint + format（一括）
 pnpm exec vitest run          # テスト
+```
+
+### Biome 初期セットアップ
+
+```bash
+pnpm add -D --save-exact @biomejs/biome
+pnpm exec biome init          # biome.json 生成
+```
+
+## biome.json — 推奨設定
+
+```jsonc
+{
+  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "warn"
+      },
+      "suspicious": {
+        "noExplicitAny": "error"
+      },
+      "style": {
+        "noDefaultExport": "error",
+        "useImportType": "error",
+        "noNonNullAssertion": "error"
+      }
+    }
+  },
+  "formatter": {
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "semicolons": "always"
+    }
+  }
+}
 ```
 
 ## tsconfig.json — Strict を徹底する
@@ -221,8 +270,8 @@ myproject/
 │   ├── utils/             # ユーティリティ
 │   └── __tests__/         # 統合テスト（ユニットはコロケーション）
 ├── package.json
+├── biome.json             # Biome設定（lint + format 統合）
 ├── tsconfig.json
-├── eslint.config.ts       # flat config
 ├── vitest.config.ts
 └── README.md
 ```
