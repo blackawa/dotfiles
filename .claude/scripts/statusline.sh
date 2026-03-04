@@ -2,6 +2,9 @@
 
 input=$(cat)
 
+# ワークスペースのディレクトリ
+work_dir=$(printf '%s' "$input" | jq -r '.workspace.current_dir // empty' 2>/dev/null)
+
 # コンテキスト使用率（Claude Code が stdin で渡す）
 pct_raw=$(printf '%s' "$input" | jq -r '.context_window.used_percentage' 2>/dev/null)
 
@@ -38,10 +41,20 @@ if command -v ccusage &>/dev/null; then
     else
       time_str="${remaining_minutes}m"
     fi
-    printf '%s | ⏱ %s' "$ctx" "$time_str"
+    out="${ctx} | ⏱ ${time_str}"
   else
-    printf '%s' "$ctx"
+    out="$ctx"
   fi
 else
-  printf '%s' "$ctx"
+  out="$ctx"
+fi
+
+# Git情報（ワークスペースディレクトリで実行）
+if [ -n "$work_dir" ] && git -C "$work_dir" rev-parse --git-dir >/dev/null 2>&1; then
+  branch=$(git -C "$work_dir" branch --show-current 2>/dev/null)
+  staged=$(git -C "$work_dir" diff --cached --numstat 2>/dev/null | wc -l | tr -d ' ')
+  modified=$(git -C "$work_dir" diff --numstat 2>/dev/null | wc -l | tr -d ' ')
+  printf '%s | %s +%s ~%s' "$out" "$branch" "$staged" "$modified"
+else
+  printf '%s' "$out"
 fi
