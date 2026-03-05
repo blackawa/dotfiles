@@ -55,20 +55,53 @@ fi
 # --- 4. 現在のモデル ---
 model_name=$(printf '%s' "$input" | jq -r '.model.display_name // .model.id // "unknown"' 2>/dev/null)
 
-# --- 出力の組み立て ---
-parts=()
-[ -n "$git_info" ] && parts+=("$git_info")
-parts+=("$ctx")
-[ -n "$rate_info" ] && parts+=("$rate_info")
-[ -n "$model_name" ] && parts+=("$model_name")
+# --- 5. /usage 情報（トークン・コスト・実行時間）---
+input_tok=$(printf '%s' "$input" | jq -r '.context_window.current_usage.input_tokens // 0' 2>/dev/null)
+output_tok=$(printf '%s' "$input" | jq -r '.context_window.current_usage.output_tokens // 0' 2>/dev/null)
+cache_write=$(printf '%s' "$input" | jq -r '.context_window.current_usage.cache_creation_input_tokens // 0' 2>/dev/null)
+cache_read=$(printf '%s' "$input" | jq -r '.context_window.current_usage.cache_read_input_tokens // 0' 2>/dev/null)
+cost_usd=$(printf '%s' "$input" | jq -r '.cost.total_cost_usd // 0' 2>/dev/null)
+duration_ms=$(printf '%s' "$input" | jq -r '.cost.total_duration_ms // 0' 2>/dev/null)
 
-output=""
-for part in "${parts[@]}"; do
-  if [ -z "$output" ]; then
-    output="$part"
+# トークンをk単位に
+input_k=$((input_tok / 1000))
+output_k=$((output_tok / 1000))
+cache_w_k=$((cache_write / 1000))
+cache_r_k=$((cache_read / 1000))
+
+# 実行時間を分:秒に
+duration_s=$((duration_ms / 1000))
+dur_m=$((duration_s / 60))
+dur_s=$((duration_s % 60))
+if [ "$dur_m" -gt 0 ]; then
+  dur_str="${dur_m}m${dur_s}s"
+else
+  dur_str="${dur_s}s"
+fi
+
+# コストを整形
+cost_str=$(printf '$%.2f' "$cost_usd")
+
+usage_info="in:${input_k}k out:${output_k}k cw:${cache_w_k}k cr:${cache_r_k}k | ${cost_str} | ${dur_str}"
+
+# --- 出力の組み立て（2行）---
+# 1行目: リポジトリ | プログレスバー | レート制限 | モデル
+line1_parts=()
+[ -n "$git_info" ] && line1_parts+=("$git_info")
+line1_parts+=("$ctx")
+[ -n "$rate_info" ] && line1_parts+=("$rate_info")
+[ -n "$model_name" ] && line1_parts+=("$model_name")
+
+line1=""
+for part in "${line1_parts[@]}"; do
+  if [ -z "$line1" ]; then
+    line1="$part"
   else
-    output="${output} | ${part}"
+    line1="${line1} | ${part}"
   fi
 done
 
-printf '%s' "$output"
+# 2行目: トークン使用量 | コスト | 実行時間
+line2="$usage_info"
+
+printf '%s\n%s' "$line1" "$line2"
