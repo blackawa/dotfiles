@@ -55,12 +55,11 @@ fi
 # --- 4. 現在のモデル ---
 model_name=$(printf '%s' "$input" | jq -r '.model.display_name // .model.id // "unknown"' 2>/dev/null)
 
-# --- 5. /usage 情報（トークン・コスト・実行時間）---
+# --- 5. /usage 情報（トークン・実行時間）---
 input_tok=$(printf '%s' "$input" | jq -r '.context_window.current_usage.input_tokens // 0' 2>/dev/null)
 output_tok=$(printf '%s' "$input" | jq -r '.context_window.current_usage.output_tokens // 0' 2>/dev/null)
 cache_write=$(printf '%s' "$input" | jq -r '.context_window.current_usage.cache_creation_input_tokens // 0' 2>/dev/null)
 cache_read=$(printf '%s' "$input" | jq -r '.context_window.current_usage.cache_read_input_tokens // 0' 2>/dev/null)
-cost_usd=$(printf '%s' "$input" | jq -r '.cost.total_cost_usd // 0' 2>/dev/null)
 duration_ms=$(printf '%s' "$input" | jq -r '.cost.total_duration_ms // 0' 2>/dev/null)
 
 # トークンをk単位に
@@ -79,10 +78,7 @@ else
   dur_str="${dur_s}s"
 fi
 
-# コストを整形
-cost_str=$(printf '$%.2f' "$cost_usd")
-
-usage_info="in:${input_k}k out:${output_k}k cw:${cache_w_k}k cr:${cache_r_k}k | ${cost_str} | ${dur_str}"
+usage_info="入力 ${input_k}k  出力 ${output_k}k  キャッシュ書 ${cache_w_k}k 読 ${cache_r_k}k  経過 ${dur_str}"
 
 # --- 出力の組み立て（2行）---
 # 1行目: リポジトリ | プログレスバー | レート制限 | モデル
