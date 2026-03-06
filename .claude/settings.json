@@ -70,6 +70,7 @@
   "skipDangerousModePermissionPrompt": true,
   "statusLine": {
     "type": "command",
-    "command": "~/.claude/scripts/statusline.sh"
+    "command": "~/.bun/bin/bun x ccusage statusline",
+    "padding": 0
   }
 }
