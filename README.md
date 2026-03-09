@@ -69,3 +69,8 @@ Then open iTerm and detect configuration directory in preference window.
 ![config](iTerm_config.png)
 
 After that, restart iTerm
+
+## Setup cmux (Ghostty)
+
+    mkdir -p ~/.config/ghostty
+    ln -s ~/git/github/blackawa/dotfiles/.config/ghostty/config ~/.config/ghostty/config
