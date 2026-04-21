@@ -10,6 +10,13 @@ description: >
 
 GAS (Google Apps Script) を clasp + gws CLI でローカル開発するための環境構築手順。
 
+## 公式ドキュメント（まず読む）
+
+- **clasp run の設定ガイド**: https://github.com/google/clasp/blob/master/docs/run.md
+- **clasp 全体**: https://github.com/google/clasp
+- **Apps Script API**: https://developers.google.com/apps-script/api
+- **gws CLI**: https://github.com/nicholasgasior/gws (or `gws --help`)
+
 ## 前提ツール
 
 | ツール | 用途 | インストール |
