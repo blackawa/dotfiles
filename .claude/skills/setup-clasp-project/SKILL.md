@@ -112,23 +112,56 @@ mkdir -p gas
 clasp create --type sheets --title "プロジェクト名" --rootDir gas
 ```
 
+### `.clasp.json` に `projectId` を追加（必須）
+
+clone/create 後に `.clasp.json` を編集し、GCPプロジェクトIDを追加する:
+
+```json
+{
+  "scriptId": "...",
+  "projectId": "<GCPプロジェクトID>",
+  "rootDir": "gas"
+}
+```
+
+**これがないと `clasp run` が 404 で失敗する。**
+公式ドキュメント: https://github.com/google/clasp/blob/master/docs/run.md
+
+### `appsscript.json` に `executionApi` を追加（必須）
+
+`gas/appsscript.json` に以下を追加:
+
+```json
+{
+  "executionApi": {
+    "access": "MYSELF"
+  }
+}
+```
+
+**これがないと `clasp run` が "Script function not found" で失敗する。**
+
 ## Step 5: clasp run の有効化（自己検証ループ）
 
 `clasp run` は GAS 関数をCLIから実行し、return 値を受け取れる。
 開発中のテスト自動化に必須。
 
-### 前提条件（3つ）
+### 前提条件（4つ、すべて必須）
 
-1. **GAS プロジェクトを GCP プロジェクトに紐付け**
+1. **`.clasp.json` に `projectId` を設定済み**（Step 4 参照）
+
+2. **`appsscript.json` に `executionApi` を設定済み**（Step 4 参照）
+
+3. **GAS プロジェクトを GCP プロジェクトに紐付け**（人間の作業）
    - GAS エディタ > プロジェクトの設定 > GCP プロジェクト
    - gws auth setup で使った GCP プロジェクトのプロジェクト番号を入力
+   - ⚠ これは GAS エディタからしかできない
 
-2. **API実行可能デプロイを作成（GASエディタから1回だけ）**
-   - デプロイ → 新しいデプロイ → 種類: **API実行可能**（ライブラリやウェブアプリではない）
+4. **API実行可能デプロイを作成**（人間の作業、1回だけ）
+   - GAS エディタで: デプロイ → 新しいデプロイ → 種類: **API実行可能**
+   - ⚠ 「ライブラリ」「ウェブアプリ」ではなく **「API実行可能」** を選ぶこと
    - アクセス: 自分のみ
    - このデプロイは1回作れば以降触る必要なし
-
-3. **clasp をカスタム OAuth クライアントで認証済み**（Step 3 参照）
 
 ### 開発サイクル
 
@@ -144,6 +177,11 @@ clasp run 関数名   # devMode=true で HEAD コードを実行（return 値が
   - `clasp deploy` はバージョン固定デプロイを作るコマンドで、API実行可能デプロイを上書きしてしまう
 - `Logger.log()` の出力は `clasp run` では取得できない。テスト結果は `return` で返す
 - GAS の BigQuery Advanced Service を使う場合、GCP プロジェクト側でも BigQuery API を有効化する必要がある
+- スクリプトが SpreadsheetApp や BigQuery を使う場合、clasp login に追加スコープが必要:
+  ```bash
+  clasp login --creds .gws/client_secret.json \
+    --extra-scopes https://www.googleapis.com/auth/spreadsheets,https://www.googleapis.com/auth/bigquery
+  ```
 
 ### 検証用 ping 関数
 
