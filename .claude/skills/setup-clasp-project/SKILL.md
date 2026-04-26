@@ -205,6 +205,20 @@ clasp push && clasp run ping
 # → { ok: true, time: '2026-04-21T13:49:11.256Z' }
 ```
 
+### 代替案: `gws script scripts run --devMode`（clasp run が詰まった時）
+
+API実行可能デプロイの作成や OAuth クライアント切り替えがうまくいかない場合、
+`gws script scripts run` で迂回できる:
+
+```bash
+gws script scripts run \
+  --params '{"scriptId":"<scriptId>"}' \
+  --json '{"function":"ping","devMode":true}'
+```
+
+`devMode: true` を付けると、デプロイ不要で HEAD コードを直接実行できる。
+詳細は `test-clasp-project` 参照。
+
 ## トラブルシューティング
 
 | エラー | 原因 | 対処 |
